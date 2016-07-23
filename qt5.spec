@@ -1,6 +1,6 @@
 Name: qt5
 Version: 5.7.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -31,7 +31,9 @@ Requires: qt5-qtsvg
 Requires: qt5-qttools
 Requires: qt5-qtwayland
 Requires: qt5-qtwebchannel
-Requires: qt5-qtwebengine
+## qtwebengine is not available on all archs, omit for now
+## else, need to make qt5 arch'd and deps conditional (on arch)
+#Requires: qt5-qtwebengine
 Requires: qt5-qtwebkit
 Requires: qt5-qtwebsockets
 Requires: qt5-qtx11extras
@@ -108,6 +110,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 %{_rpmconfigdir}/macros.d/macros.qt5
 
 %changelog
+* Sat Jul 23 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-7
+- drop Requires: qt5-qtwebengine (not available on all archs)
+
 * Tue Jul 12 2016 Helio Chissini de Castro <helio@kde.org> - 5.7.0-6
 - Fix macros with invalid substitutions.
 
