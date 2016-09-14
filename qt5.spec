@@ -138,7 +138,7 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 - install the right macros.qt5-srpm file
 
 * Wed Sep 14 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-8
-- introduce -srpm-macros (initially defines %%qt5_qtwebengine_archs)
+- introduce -srpm-macros (initially defines %%qt5_qtwebengine_arches)
 - -devel: drop Requires: qt5-qtwebengine-devel (since not all archs are supported)
 
 * Sat Jul 23 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-7
