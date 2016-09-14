@@ -6,7 +6,7 @@
 
 Name: qt5
 Version: 5.7.0
-Release: 8%{?dist}
+Release: 9%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -105,7 +105,7 @@ Summary: RPM macros for source Qt5 packages
 
 %install
 install -Dpm644 %{SOURCE0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
-install -Dpm644 %{SOURCE0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5-srpm
+install -Dpm644 %{SOURCE1} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5-srpm
 
 # substitute custom flags
 sed -i \
@@ -134,6 +134,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Sep 14 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-9
+- install the right macros.qt5-srpm file
+
 * Wed Sep 14 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-8
 - introduce -srpm-macros (initially defines %%qt5_qtwebengine_archs)
 - -devel: drop Requires: qt5-qtwebengine-devel (since not all archs are supported)
