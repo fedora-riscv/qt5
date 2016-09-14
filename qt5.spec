@@ -1,10 +1,17 @@
+
+%if 0%{?fedora} > 23
+# gcc6: Qt assumes this in places (*should* be fixed now, or at least in 5.8) -- rex
+%global qt5_null_flag -fno-delete-null-pointer-checks
+%endif
+
 Name: qt5
 Version: 5.7.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
 Source0: macros.qt5
+Source1: macros.qt5-srpm
 BuildArch: noarch
 Requires: qt5-gstreamer
 Requires: qt5-qdbusviewer
@@ -69,7 +76,7 @@ Requires: qt5-qtsvg-devel
 Requires: qt5-qttools-devel
 Requires: qt5-qtwayland-devel
 Requires: qt5-qtwebchannel-devel
-Requires: qt5-qtwebengine-devel
+#Requires: qt5-qtwebengine-devel
 Requires: qt5-qtwebkit-devel
 Requires: qt5-qtwebsockets-devel
 Requires: qt5-qtx11extras-devel
@@ -79,7 +86,7 @@ Requires: qt5-qtxmlpatterns-devel
 %{summary}.
 
 %package rpm-macros
-Summary: Qt5 RPM macros for KDE Frameworks 5
+Summary: RPM macros for building Qt5 and KDE Frameworks 5 packages
 Conflicts: qt5-qtbase-devel < 5.6.0-0.23
 %if 0%{?fedora}
 Requires: cmake >= 3
@@ -87,13 +94,26 @@ Requires: cmake >= 3
 %if 0%{?rhel}
 Requires: cmake3
 %endif
-
-
 %description rpm-macros
-RPM macros for building KDE Frameworks 5 packages.
+%{summary}.
+
+%package srpm-macros
+Summary: RPM macros for source Qt5 packages
+%description srpm-macros
+%{summary}.
+
 
 %install
-install -Dpm644 %{_sourcedir}/macros.qt5 %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
+install -Dpm644 %{SOURCE0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
+install -Dpm644 %{SOURCE0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5-srpm
+
+# substitute custom flags
+sed -i \
+  -e "s|@@QT5_CFLAGS@@|%{?qt5_cflags}|g" \
+  -e "s|@@QT5_CXXFLAGS@@|%{?qt5_cxxflags}|g" \
+  -e "s|@@QT5_RPM_LD_FLAGS@@|%{?qt5_rpm_ld_flags}|g" \
+  -e "s|@@QT5_RPM_OPT_FLAGS@@|%{?qt5_rpm_opt_flags} %{?qt5_null_flag}|g" \
+  %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
 
 mkdir -p %{buildroot}%{_docdir}/qt5
 mkdir -p %{buildroot}%{_docdir}/qt5-devel
@@ -109,7 +129,15 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 %files rpm-macros
 %{_rpmconfigdir}/macros.d/macros.qt5
 
+%files srpm-macros
+%{_rpmconfigdir}/macros.d/macros.qt5-srpm
+
+
 %changelog
+* Wed Sep 14 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-8
+- introduce -srpm-macros (initially defines %%qt5_qtwebengine_archs)
+- -devel: drop Requires: qt5-qtwebengine-devel (since not all archs are supported)
+
 * Sat Jul 23 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-7
 - drop Requires: qt5-qtwebengine (not available on all archs)
 

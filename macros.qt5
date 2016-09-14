@@ -16,10 +16,10 @@
 %_qt5_sysconfdir %{_qt5_settingsdir}
 %_qt5_translationdir %{_datadir}/qt5/translations
 
-%_qt5_cflags %{nil}
-%_qt5_cxxflags %{nil}
-%_qt5_ldflags %{nil}%{?__global_ldflags}
-%_qt5_optflags %{optflags} -fno-delete-null-pointer-checks
+%_qt5_cflags %{nil}@@QT5_CFLAGS@@
+%_qt5_cxxflags %{nil}@@QT5_CXXFLAGS@@
+%_qt5_ldflags %{nil}%{?__global_ldflags} @@QT5_RPM_LD_FLAGS@@
+%_qt5_optflags %{optflags} @@QT5_RPM_OPT_FLAGS@@
 
 %_qt5_qmake_flags \\\
   QMAKE_CFLAGS_DEBUG="${CFLAGS:-%{_qt5_optflags} %{?_qt5_cflags}}" \\\
