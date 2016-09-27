@@ -6,7 +6,7 @@
 
 Name: qt5
 Version: 5.7.0
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -91,7 +91,7 @@ Conflicts: qt5-qtbase-devel < 5.6.0-0.23
 %if 0%{?fedora}
 Requires: cmake >= 3
 %endif
-%if 0%{?rhel}
+%if 0%{?epel}
 Requires: cmake3
 %endif
 %description rpm-macros
@@ -134,6 +134,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Tue Sep 27 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-10
+- s/%%rhel/%%epel/ , cmake3 is only available in epel
+
 * Wed Sep 14 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-9
 - install the right macros.qt5-srpm file
 
