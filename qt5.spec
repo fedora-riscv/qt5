@@ -5,8 +5,8 @@
 %endif
 
 Name: qt5
-Version: 5.7.0
-Release: 10%{?dist}
+Version: 5.7.1
+Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -134,6 +134,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Nov 09 2016 Helio Chissini de Castro <helio@kde.org> - 5.7.1-1
+- Prepare for new release
+
 * Tue Sep 27 2016 Rex Dieter <rdieter@fedoraproject.org> - 5.7.0-10
 - s/%%rhel/%%epel/ , cmake3 is only available in epel
 
