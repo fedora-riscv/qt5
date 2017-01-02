@@ -6,17 +6,15 @@
 
 Name: qt5
 Version: 5.7.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
 Source0: macros.qt5
 Source1: macros.qt5-srpm
 BuildArch: noarch
-Requires: qt5-gstreamer
 Requires: qt5-qdbusviewer
 Requires: qt5-qt3d
-Requires: qt5-qtaccountsservice
 Requires: qt5-qtbase
 Requires: qt5-qtbase-gui
 Requires: qt5-qtbase-mysql
@@ -59,9 +57,7 @@ Requires: qt5-designer
 Requires: qt5-qdoc
 Requires: qt5-qhelpgenerator
 Requires: qt5-linguist
-Requires: qt5-gstreamer-devel
 Requires: qt5-qt3d-devel
-Requires: qt5-qtaccountsservice-devel
 Requires: qt5-qtbase-devel
 Requires: qt5-qtconfiguration-devel
 Requires: qt5-qtconnectivity-devel
@@ -134,6 +130,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Mon Jan 02 2017 Rex Dieter <rdieter@math.unl.edu> - 5.7.1-2
+- drop Reequires: qt5-qtaccountsservice qt5-gstreamer (not from qtproject.org)
+
 * Wed Nov 09 2016 Helio Chissini de Castro <helio@kde.org> - 5.7.1-1
 - Prepare for new release
 
