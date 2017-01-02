@@ -19,7 +19,6 @@ Requires: qt5-qtbase
 Requires: qt5-qtbase-gui
 Requires: qt5-qtbase-mysql
 Requires: qt5-qtbase-postgresql
-Requires: qt5-qtconfiguration
 Requires: qt5-qtconnectivity
 Requires: qt5-qtdeclarative
 Requires: qt5-qtdoc
@@ -59,7 +58,6 @@ Requires: qt5-qhelpgenerator
 Requires: qt5-linguist
 Requires: qt5-qt3d-devel
 Requires: qt5-qtbase-devel
-Requires: qt5-qtconfiguration-devel
 Requires: qt5-qtconnectivity-devel
 Requires: qt5-qtdeclarative-devel
 Requires: qt5-qtenginio-devel
@@ -131,7 +129,7 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 %changelog
 * Mon Jan 02 2017 Rex Dieter <rdieter@math.unl.edu> - 5.7.1-2
-- drop Reequires: qt5-qtaccountsservice qt5-gstreamer (not from qtproject.org)
+- drop Requires: qt5-gstreamer qt5-qtacountsservice qt5-qtconfiguration (not from qtproject.org)
 
 * Wed Nov 09 2016 Helio Chissini de Castro <helio@kde.org> - 5.7.1-1
 - Prepare for new release
