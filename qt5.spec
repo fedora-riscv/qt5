@@ -5,8 +5,8 @@
 %endif
 
 Name: qt5
-Version: 5.8.0
-Release: 3%{?dist}
+Version: 5.9.0
+Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -128,6 +128,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Sat Apr 15 2017 Helio Chissini de Castro <helio@kde.org> - 5.9.0-1
+- Up to match upcoming 5.9.0
+
 * Fri Mar 31 2017 Rex Dieter <rdieter@fedoraproject.org> - 5.8.0-3
 - rebuild
 
