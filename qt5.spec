@@ -1,12 +1,7 @@
 
-%if 0%{?fedora} > 23
-# gcc6: Qt assumes this in places (*should* be fixed now, or at least in 5.8) -- rex
-%global qt5_null_flag -fno-delete-null-pointer-checks
-%endif
-
 Name: qt5
 Version: 5.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -106,7 +101,7 @@ sed -i \
   -e "s|@@QT5_CFLAGS@@|%{?qt5_cflags}|g" \
   -e "s|@@QT5_CXXFLAGS@@|%{?qt5_cxxflags}|g" \
   -e "s|@@QT5_RPM_LD_FLAGS@@|%{?qt5_rpm_ld_flags}|g" \
-  -e "s|@@QT5_RPM_OPT_FLAGS@@|%{?qt5_rpm_opt_flags} %{?qt5_null_flag}|g" \
+  -e "s|@@QT5_RPM_OPT_FLAGS@@|%{?qt5_rpm_opt_flags}|g" \
   %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
 
 mkdir -p %{buildroot}%{_docdir}/qt5
@@ -128,6 +123,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Thu Jun 01 2017 Rex Dieter <rdieter@fedoraproject.org> - 5.9.0-2
+- drop -fno-delete-null-pointer-checks hack/workaround
+
 * Sat Apr 15 2017 Helio Chissini de Castro <helio@kde.org> - 5.9.0-1
 - Up to match upcoming 5.9.0
 
