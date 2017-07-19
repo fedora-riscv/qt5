@@ -1,7 +1,7 @@
 
 Name: qt5
-Version: 5.9.0
-Release: 2%{?dist}
+Version: 5.9.1
+Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -123,6 +123,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Jul 19 2017 Rex Dieter <rdieter@fedoraproject.org> - 5.9.1-1
+- 5.9.1
+
 * Thu Jun 01 2017 Rex Dieter <rdieter@fedoraproject.org> - 5.9.0-2
 - drop -fno-delete-null-pointer-checks hack/workaround
 
