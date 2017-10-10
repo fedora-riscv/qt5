@@ -1,13 +1,14 @@
 
 Name: qt5
-Version: 5.9.1
-Release: 2%{?dist}
+Version: 5.9.2
+Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
 Source0: macros.qt5
 Source1: macros.qt5-srpm
 BuildArch: noarch
+
 Requires: qt5-qdbusviewer
 Requires: qt5-qt3d
 Requires: qt5-qtbase
@@ -123,6 +124,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Tue Oct 10 2017 Rex Dieter <rdieter@fedoraproject.org> - 5.9.2-1
+- 5.9.2
+
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 5.9.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
