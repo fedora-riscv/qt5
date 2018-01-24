@@ -1,12 +1,13 @@
 
 Name: qt5
 Version: 5.10.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
 Source0: macros.qt5
 Source1: macros.qt5-srpm
+Source2: qmake-qt5.sh
 BuildArch: noarch
 
 Requires: qt5-qdbusviewer
@@ -96,6 +97,12 @@ Summary: RPM macros for source Qt5 packages
 %install
 install -Dpm644 %{SOURCE0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
 install -Dpm644 %{SOURCE1} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5-srpm
+install -Dpm755 %{SOURCE2} %{buildroot}%{_libdir}/qt5/bin/qmake-qt5.sh
+mkdir %{buildroot}%{_libdir}/qt5/bin/wrappers
+pushd %{buildroot}%{_libdir}/qt5/bin/wrappers
+ln -s ../qmake-qt5.sh qmake-qt5
+ln -s ../qmake-qt5.sh qmake
+popd
 
 # substitute custom flags
 sed -i \
@@ -118,12 +125,17 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 %files rpm-macros
 %{_rpmconfigdir}/macros.d/macros.qt5
+%{_libdir}/qt5/bin/qmake-qt5.sh
+%{_libdir}/qt5/bin/wrappers/
 
 %files srpm-macros
 %{_rpmconfigdir}/macros.d/macros.qt5-srpm
 
 
 %changelog
+* Wed Jan 24 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.10.0-2
+- provide qmake-qt5.sh wrapper and new macro: %%qmake_qt5_wrapper
+
 * Wed Jan 03 2018 Rex Dieter <rdieter@fedoraproject.org> 5.10.0-1
 - 5.10.0
 

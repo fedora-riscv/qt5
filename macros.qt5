@@ -31,3 +31,5 @@
   QMAKE_STRIP=
 
 %qmake_qt5 %{_qt5_qmake} %{?_qt5_qmake_flags}
+
+%qmake_qt5_wrapper %{_qt5_bindir}/qmake-qt5.sh
