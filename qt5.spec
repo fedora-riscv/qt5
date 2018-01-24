@@ -97,12 +97,10 @@ Summary: RPM macros for source Qt5 packages
 %install
 install -Dpm644 %{SOURCE0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
 install -Dpm644 %{SOURCE1} %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5-srpm
-install -Dpm755 %{SOURCE2} %{buildroot}%{_libdir}/qt5/bin/qmake-qt5.sh
-mkdir %{buildroot}%{_libdir}/qt5/bin/wrappers
-pushd %{buildroot}%{_libdir}/qt5/bin/wrappers
-ln -s ../qmake-qt5.sh qmake-qt5
-ln -s ../qmake-qt5.sh qmake
-popd
+install -Dpm755 %{SOURCE2} %{buildroot}%{_bindir}/qmake-qt5.sh
+mkdir -p %{buildroot}%{_datadir}/qt5/wrappers
+ln -s %{_bindir}/qmake-qt5.sh %{buildroot}%{_datadir}/qt5/wrappers/qmake-qt5
+ln -s %{_bindir}/qmake-qt5.sh %{buildroot}%{_datadir}/qt5/wrappers/qmake
 
 # substitute custom flags
 sed -i \
@@ -125,8 +123,8 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 %files rpm-macros
 %{_rpmconfigdir}/macros.d/macros.qt5
-%{_libdir}/qt5/bin/qmake-qt5.sh
-%{_libdir}/qt5/bin/wrappers/
+%{_bindir}/qmake-qt5.sh
+%{_datadir}/qt5/wrappers/
 
 %files srpm-macros
 %{_rpmconfigdir}/macros.d/macros.qt5-srpm
