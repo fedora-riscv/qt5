@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# An attempt at providing a qmake wrapper for projects that 
+# An attempt at providing a qmake wrapper for projects that
 # lack native qmake support (ie, qmake is run by buildsystem
 # instead of developer or fedora packager).
 

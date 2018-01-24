@@ -1,7 +1,7 @@
 
 Name: qt5
 Version: 5.9.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -132,6 +132,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Jan 24 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.9.4-2
+- macros.kf5: provide %%qmake_qt5_wrapper macro for real
+
 * Wed Jan 24 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.9.4-1
 - 5.9.4
 - provide qmake-qt5.sh wrapper and new macro: %%qmake_qt5_wrapper
