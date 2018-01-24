@@ -1,7 +1,7 @@
 
 Name: qt5
 Version: 5.10.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -131,6 +131,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Jan 24 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.10.0-3
+- use noarch-friendly paths for qmake-qt5.sh wrapper
+
 * Wed Jan 24 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.10.0-2
 - provide qmake-qt5.sh wrapper and new macro: %%qmake_qt5_wrapper
 
