@@ -1,7 +1,7 @@
 
 Name: qt5
-Version: 5.10.0
-Release: 5%{?dist}
+Version: 5.10.1
+Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -85,6 +85,7 @@ Requires: cmake >= 3
 %if 0%{?epel}
 Requires: cmake3
 %endif
+Requires: gcc-c++
 %description rpm-macros
 %{summary}.
 
@@ -131,6 +132,10 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Mar 07 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.10.1-1
+- 5.10.1
+- rpm-macros: Requires: gcc-c++
+
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 5.10.0-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
