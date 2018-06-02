@@ -1,7 +1,7 @@
 
 Name: qt5
 Version: 5.11.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -132,6 +132,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Sat Jun 02 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.11.0-2
+- rpm-macros: do not define _qt5_archdatadir, _qt5_bindir in terms of _qt5_prefix anymore
+
 * Sat May 26 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.11.0-1
 - 5.11.0
 
