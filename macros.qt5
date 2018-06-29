@@ -1,9 +1,9 @@
-%_qt5_prefix %{_libdir}/qt5
+%_qt5_prefix %{_prefix}
 %_qt5_archdatadir %{_libdir}/qt5
 %_qt5_bindir %{_libdir}/qt5/bin
 %_qt5_datadir %{_datadir}/qt5
 %_qt5_docdir %{_docdir}/qt5
-%_qt5_examplesdir %{_qt5_prefix}/examples
+%_qt5_examplesdir %{_qt5_archdatadir}/examples
 %_qt5_headerdir %{_includedir}/qt5
 %_qt5_includedir %{_includedir}/qt5
 %_qt5_importdir %{_qt5_archdatadir}/imports
