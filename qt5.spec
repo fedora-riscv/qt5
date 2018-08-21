@@ -1,7 +1,7 @@
 
 Name: qt5
 Version: 5.11.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -103,12 +103,17 @@ mkdir -p %{buildroot}%{_datadir}/qt5/wrappers
 ln -s %{_bindir}/qmake-qt5.sh %{buildroot}%{_datadir}/qt5/wrappers/qmake-qt5
 ln -s %{_bindir}/qmake-qt5.sh %{buildroot}%{_datadir}/qt5/wrappers/qmake
 
-# substitute custom flags
+# substitute custom flags, and the path to binaries: binaries referenced from
+# macros should not change if an application is built with a different prefix.
+# %_libdir is left as /usr/%{_lib} (e.g.) so that the resulting macros are
+# architecture independent, and don't hardcode /usr/lib or /usr/lib64.
 sed -i \
   -e "s|@@QT5_CFLAGS@@|%{?qt5_cflags}|g" \
   -e "s|@@QT5_CXXFLAGS@@|%{?qt5_cxxflags}|g" \
   -e "s|@@QT5_RPM_LD_FLAGS@@|%{?qt5_rpm_ld_flags}|g" \
   -e "s|@@QT5_RPM_OPT_FLAGS@@|%{?qt5_rpm_opt_flags}|g" \
+  -e "s|@@QMAKE@@|%{_prefix}/%%{_lib}/qt5/bin/qmake|g" \
+  -e "s|@@QMAKE_QT5_WRAPPER@@|%{_bindir}/qmake-qt5.sh|g" \
   %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
 
 mkdir -p %{buildroot}%{_docdir}/qt5
@@ -132,6 +137,10 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Tue Aug 21 2018 Owen Taylor <otaylor@redhat.com> - 5.11.1-4
+- rpm-macros: always refer to binaries in their installed location, even if %%_libdir
+  and %%_bindir are redefined.
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 5.11.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
