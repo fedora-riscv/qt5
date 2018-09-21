@@ -1,7 +1,7 @@
 
 Name: qt5
-Version: 5.11.1
-Release: 4%{?dist}
+Version: 5.11.2
+Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -137,6 +137,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Fri Sep 21 2018 Jan Grulich <jgrulich@redhat.com> - 5.11.2-1
+- 5.11.2
+
 * Tue Aug 21 2018 Owen Taylor <otaylor@redhat.com> - 5.11.1-4
 - rpm-macros: always refer to binaries in their installed location, even if %%_libdir
   and %%_bindir are redefined.
