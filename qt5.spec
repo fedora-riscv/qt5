@@ -1,6 +1,6 @@
 
 Name: qt5
-Version: 5.11.2
+Version: 5.11.3
 Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
@@ -137,6 +137,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Fri Dec 07 2018 Rex Dieter <rdieter@fedoraproject.org> - 5.11.3-1
+- 5.11.3
+
 * Fri Sep 21 2018 Jan Grulich <jgrulich@redhat.com> - 5.11.2-1
 - 5.11.2
 
