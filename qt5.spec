@@ -35,7 +35,6 @@ Requires: qt5-qtwebchannel
 ## qtwebengine is not available on all archs, omit for now
 ## else, need to make qt5 arch'd and deps conditional (on arch)
 #Requires: qt5-qtwebengine
-Requires: qt5-qtwebkit
 Requires: qt5-qtwebsockets
 Requires: qt5-qtx11extras
 Requires: qt5-qtxmlpatterns
@@ -139,6 +138,7 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 %changelog
 * Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.14.2-1
 - 5.14.2
+- drop qt5-qtwebkit from metapackage (hasn't been a core qt5 pkg for awhile)
 
 * Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.13.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
