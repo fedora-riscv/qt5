@@ -67,7 +67,6 @@ Requires: qt5-qttools-devel
 Requires: qt5-qtwayland-devel
 Requires: qt5-qtwebchannel-devel
 #Requires: qt5-qtwebengine-devel
-Requires: qt5-qtwebkit-devel
 Requires: qt5-qtwebsockets-devel
 Requires: qt5-qtx11extras-devel
 Requires: qt5-qtxmlpatterns-devel
