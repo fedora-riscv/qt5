@@ -1,7 +1,7 @@
 
 Name: qt5
 Version: 5.14.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -56,7 +56,6 @@ Requires: qt5-qt3d-devel
 Requires: qt5-qtbase-devel
 Requires: qt5-qtconnectivity-devel
 Requires: qt5-qtdeclarative-devel
-Requires: qt5-qtenginio-devel
 Requires: qt5-qtlocation-devel
 Requires: qt5-qtmultimedia-devel
 Requires: qt5-qtscript-devel
@@ -135,6 +134,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Mon Apr 06 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.14.2-2
+- qt5-devel: drop R: qt5-qtenginio-devel
+
 * Sat Apr 04 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.14.2-1
 - 5.14.2
 - drop qt5-qtwebkit from metapackage (hasn't been a core qt5 pkg for awhile)
