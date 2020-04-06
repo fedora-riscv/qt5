@@ -1,7 +1,13 @@
 
+# include qt5,qt5-devel metapackages or not
+# dropped for f32+
+%if 0%{?fedora} < 32
+%global metapackage 1
+%endif
+
 Name: qt5
 Version: 5.14.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -113,6 +119,7 @@ sed -i \
   -e "s|@@QMAKE_QT5_WRAPPER@@|%{_bindir}/qmake-qt5.sh|g" \
   %{buildroot}%{_rpmconfigdir}/macros.d/macros.qt5
 
+%if 0%{?metapackage}
 mkdir -p %{buildroot}%{_docdir}/qt5
 mkdir -p %{buildroot}%{_docdir}/qt5-devel
 echo "- Qt5 meta package" > %{buildroot}%{_docdir}/qt5/README
@@ -123,6 +130,7 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 %files devel
 %{_docdir}/qt5-devel/README
+%endif
 
 %files rpm-macros
 %{_rpmconfigdir}/macros.d/macros.qt5
@@ -134,6 +142,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Mon Apr 06 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.14.2-3
+- drop qt5,qt5-devel metapackages f32+
+
 * Mon Apr 06 2020 Rex Dieter <rdieter@fedoraproject.org> - 5.14.2-2
 - qt5-devel: drop R: qt5-qtenginio-devel
 
