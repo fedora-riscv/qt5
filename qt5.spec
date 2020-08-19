@@ -1,3 +1,4 @@
+
 # include qt5,qt5-devel metapackages or not
 # dropped for f32+
 %if 0%{?fedora} < 32
@@ -6,7 +7,7 @@
 
 Name: qt5
 Version: 5.14.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
 URL: https://getfedora.org/
@@ -136,6 +137,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Aug 19 2020 Troy Dawson <tdawson@redhat.com> - 5.14.2-5
+- rpm-macros always requires cmake
+
 * Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.14.2-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
