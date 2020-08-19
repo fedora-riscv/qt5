@@ -1,4 +1,3 @@
-
 # include qt5,qt5-devel metapackages or not
 # dropped for f32+
 %if 0%{?fedora} < 32
@@ -82,12 +81,7 @@ Requires: qt5-qtxmlpatterns-devel
 %package rpm-macros
 Summary: RPM macros for building Qt5 and KDE Frameworks 5 packages
 Conflicts: qt5-qtbase-devel < 5.6.0-0.23
-%if 0%{?fedora}
 Requires: cmake >= 3
-%endif
-%if 0%{?epel}
-Requires: cmake3
-%endif
 Requires: gcc-c++
 %description rpm-macros
 %{summary}.
