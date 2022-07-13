@@ -5,7 +5,7 @@
 %endif
 
 Name: qt5
-Version: 5.15.4
+Version: 5.15.5
 Release: 1%{?dist}
 Summary: Qt5 meta package
 License: GPLv3
@@ -141,6 +141,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Wed Jul 13 2022 Jan Grulich <jgrulich@redhat.com> - 5.15.5-1
+- 5.15.5
+
 * Mon May 16 2022 Jan Grulich <jgrulich@redhat.com> - 5.15.4-1
 - 5.15.4
 
