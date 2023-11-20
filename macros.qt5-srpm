@@ -5,5 +5,5 @@
 # # If you cannot get this package to build on your secondary architecure, please:
 # # * remove your architecture from this list AND
 # # * put #1298011 onto your ExcludeArch tracker.
-%qt5_qtwebengine_arches %{ix86} x86_64 %{arm} aarch64 mips mipsel mips64el
+%qt5_qtwebengine_arches %{ix86} x86_64 %{arm} aarch64 mips mipsel mips64el riscv64
 
