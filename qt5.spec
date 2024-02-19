@@ -6,7 +6,7 @@
 
 Name: qt5
 Version: 5.15.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Qt5 meta package
 License: GPL-3.0-only
 URL: https://getfedora.org/
@@ -141,6 +141,9 @@ echo "- Qt5 devel meta package" > %{buildroot}%{_docdir}/qt5-devel/README
 
 
 %changelog
+* Fri May 12 2023 Liu Yang <Yang.Liu.sn@gmail.com> - 5.15.12-2
+- Add riscv64 to macro %qt5_qtwebengine_arches.
+
 * Tue Jan 02 2024 Jan Grulich <jgrulich@redhat.com> - 5.15.12-1
 - 5.15.12
 
